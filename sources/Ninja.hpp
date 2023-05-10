@@ -13,6 +13,8 @@ namespace ariel {
         Ninja(std::string name, Point location,int life, int speed);
         void move(Character *enemy);
         void slash (Character *enemy);
+
+        int getSpeed() const;
     };
 }
 

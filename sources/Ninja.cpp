@@ -12,3 +12,7 @@ void ariel::Ninja::move(ariel::Character *enemy) {
 void ariel::Ninja::slash(ariel::Character *enemy) {
 }
 
+int ariel::Ninja::getSpeed() const {
+    return speed;
+}
+

@@ -20,3 +20,7 @@ void ariel::Cowboy::reload() {
     this->numOfBullets=6;
 }
 
+int ariel::Cowboy::getNumOfBullets() const {
+    return numOfBullets;
+}
+

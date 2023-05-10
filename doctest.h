@@ -39,6 +39,8 @@
 // =================================================================================================
 // =================================================================================================
 
+#include "sources/Point.hpp"
+
 #ifndef DOCTEST_LIBRARY_INCLUDED
 #define DOCTEST_LIBRARY_INCLUDED
 
@@ -664,7 +666,7 @@ friend DOCTEST_INTERFACE std::ostream& operator<<(std::ostream& s, const String&
 
 DOCTEST_INTERFACE String operator+(const String& lhs, const String& rhs);
 
-DOCTEST_INTERFACE bool operator==(const String& lhs, const String& rhs);
+DOCTEST_INTERFACE bool operator==(ariel::Point lhs, const String& rhs);
 DOCTEST_INTERFACE bool operator!=(const String& lhs, const String& rhs);
 DOCTEST_INTERFACE bool operator<(const String& lhs, const String& rhs);
 DOCTEST_INTERFACE bool operator>(const String& lhs, const String& rhs);
@@ -682,7 +684,7 @@ public:
 
 DOCTEST_INTERFACE String toString(const Contains& in);
 
-DOCTEST_INTERFACE bool operator==(const String& lhs, const Contains& rhs);
+DOCTEST_INTERFACE bool operator==(ariel::Point lhs, const Contains& rhs);
 DOCTEST_INTERFACE bool operator==(const Contains& lhs, const String& rhs);
 DOCTEST_INTERFACE bool operator!=(const String& lhs, const Contains& rhs);
 DOCTEST_INTERFACE bool operator!=(const Contains& lhs, const String& rhs);

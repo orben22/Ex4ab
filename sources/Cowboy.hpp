@@ -15,6 +15,8 @@ namespace ariel {
         void shoot(Character *enemy);
         bool hasBullets() const;
         void reload();
+
+        int getNumOfBullets() const;
     };
 }
 

@@ -18,7 +18,21 @@ namespace ariel {
 
         Point(double x, double y);
 
-        int stillAlive();
+        Point();
+
+        double getX() const;
+
+        void setX(double newX);
+
+        double getY() const;
+
+        void setY(double newY);
+
+        static int stillAlive();
+
+        bool operator==(const Point &rhs) const;
+
+        bool operator!=(const Point &rhs) const;
     };
 }
 
