@@ -6,7 +6,6 @@
 #define UNTITLED3_COWBOY_H
 #include "Character.hpp"
 namespace ariel {
-    int cowbotLife=110;
     class Cowboy: public Character {
     private:
         int numOfBullets;

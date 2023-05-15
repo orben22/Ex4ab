@@ -4,8 +4,8 @@
 
 #include "Team.hpp"
 
-ariel::Team::Team(ariel::Character *leader):leader(leader) {
-    myteam[0]=*leader;
+ariel::Team::Team(ariel::Character *leader) : leader(leader) {
+    myteam[0] = leader;
 }
 
 ariel::Team::~Team() {
@@ -23,5 +23,13 @@ int ariel::Team::stillAlive() {
 }
 
 void ariel::Team::print() {
+}
+
+ariel::Character *ariel::Team::getLeader() const {
+    return leader;
+}
+
+void ariel::Team::setLeader(ariel::Character *leader) {
+    Team::leader = leader;
 }
 

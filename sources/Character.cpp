@@ -11,7 +11,8 @@ double ariel::Character::distance(ariel::Character *other) {
 void ariel::Character::hit(int damage) {
 }
 
-void ariel::Character::print() const {
+std::string ariel::Character::print() const {
+    return "";
 }
 
 const ariel::Point &ariel::Character::getLocation() const {

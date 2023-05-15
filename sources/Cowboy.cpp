@@ -5,7 +5,7 @@
 #include "Cowboy.hpp"
 
 #include <utility>
-ariel::Cowboy::Cowboy(std::string name, ariel::Point location) : Character(std::move(name),cowbotLife, location),numOfBullets(6) {
+ariel::Cowboy::Cowboy(std::string name, ariel::Point location) : Character(std::move(name), 120, location), numOfBullets(6) {
 }
 
 bool ariel::Cowboy::hasBullets() const {

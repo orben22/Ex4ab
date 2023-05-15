@@ -14,7 +14,7 @@ namespace ariel {
     int const maxTeam=10;
     class Team {
     private:
-        std::array<Character,maxTeam> myteam;
+        std::array<Character*,maxTeam> myteam;
         Character *leader;
     public:
         Team(Character *leader);
@@ -23,6 +23,8 @@ namespace ariel {
         void attack(Team *enemyTeam);
         int stillAlive();
         void print();
+        Character *getLeader() const;
+        void setLeader(Character *leader);
     };
 }
 

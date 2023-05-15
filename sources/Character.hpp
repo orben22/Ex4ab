@@ -4,8 +4,10 @@
 
 #ifndef UNTITLED3_CHARACTER_H
 #define UNTITLED3_CHARACTER_H
+
 #include "Point.hpp"
 #include "iostream"
+
 namespace ariel {
     class Character {
     private:
@@ -13,7 +15,7 @@ namespace ariel {
         std::string name;
         int life;
     public:
-        Character(std::string name,int life,Point location);
+        Character(std::string name, int life, Point location);
 
         Character();
 
@@ -23,7 +25,7 @@ namespace ariel {
 
         void hit(int damage);
 
-        virtual void print() const;
+        virtual std::string print() const;
 
         const Point &getLocation() const;
 
