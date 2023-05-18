@@ -5,20 +5,24 @@
 #ifndef UNTITLED3_POINT_H
 #define UNTITLED3_POINT_H
 
+#include <string>
+
 namespace ariel {
     class Point {
     private:
-        double x, y;
+        double valueOfX, valueOfY;
     public:
-        double distance(Point p) const;
+        double distance(Point &other) const;
 
-        void print();
+        std::string print() const;
 
-        Point moveTowards(Point &src, Point &dest, double distance);
+        static Point moveTowards(const Point & source, const Point& destination, double distance);
 
         Point(double x, double y);
 
         Point();
+
+        Point(Point &other);
 
         double getX() const;
 
@@ -27,8 +31,6 @@ namespace ariel {
         double getY() const;
 
         void setY(double newY);
-
-        static int stillAlive();
 
         bool operator==(const Point &rhs) const;
 

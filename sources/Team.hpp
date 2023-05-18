@@ -14,17 +14,22 @@ namespace ariel {
     int const maxTeam=10;
     class Team {
     private:
+        size_t size;
         std::array<Character*,maxTeam> myteam;
         Character *leader;
     public:
         Team(Character *leader);
         ~Team();
         void add(Character *newChar);
-        void attack(Team *enemyTeam);
+        virtual void attack(Team *enemyTeam);
         int stillAlive();
-        void print();
+        virtual void print();
         Character *getLeader() const;
         void setLeader(Character *leader);
+
+        size_t getSize() const;
+
+        const std::array<Character *, maxTeam> &getMyteam() const;
     };
 }
 

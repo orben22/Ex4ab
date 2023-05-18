@@ -16,7 +16,6 @@ TEST_CASE("Test- Point Class") {
     CHECK_EQ(p2.getX(), 0);
     CHECK_EQ(p2.getY(), 0);
     CHECK_EQ(p2.distance(p1), 5);
-    CHECK(p1.stillAlive());
 }
 //need to check move func
 TEST_CASE("Test-Ninja Class") {
