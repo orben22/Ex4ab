@@ -44,6 +44,14 @@ void ariel::Character::setIsInTeam() {
     this->isInTeam=!isInTeam;
 }
 
+ariel::Character &ariel::Character::operator=(ariel::Character &&other) noexcept=default;
+
+ariel::Character::Character(ariel::Character &&other) noexcept=default;
+
+ariel::Character::Character(const ariel::Character &other)=default;
+
+ariel::Character &ariel::Character::operator=(const ariel::Character &other)=default;
+
 ariel::Character::~Character() =default;
 
 

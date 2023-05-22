@@ -15,20 +15,27 @@ namespace ariel {
     class Team {
     private:
         size_t size;
-        std::array<Character*,maxTeam> myteam;
+        std::array<Character*,maxTeam> myteam{};
         Character *leader;
     public:
-        Team(Character *leader);
-        ~Team();
+        explicit Team(Character *leader);
+        virtual ~Team();
+        Team(const Team &other);
+
+        Team(Team &&other) noexcept;
+
+        Team &operator=(const Team &other);
+
+        Team &operator=(Team &&other) noexcept;
         void add(Character *newChar);
         virtual void attack(Team *enemyTeam);
         int stillAlive();
         virtual void print();
         Character *getLeader() const;
         void setLeader(Character *leader);
-
+        Character *getCloser(Team *enemyTeam);
         size_t getSize() const;
-
+        void changeLeader();
         const std::array<Character *, maxTeam> &getMyteam() const;
     };
 }

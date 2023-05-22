@@ -6,5 +6,5 @@
 
 #include <utility>
 
-ariel::TrainedNinja::TrainedNinja(std::string name, ariel::Point location): Ninja(std::move(name),location,trainedLife,trainedSpeed) {}
+ariel::TrainedNinja::TrainedNinja(std::string name, ariel::Point location): Ninja(std::move(name),std::move(location),trainedLife,trainedSpeed) {}
 

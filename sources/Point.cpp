@@ -5,13 +5,12 @@
 #include "Point.hpp"
 #include <iostream>
 
-ariel::Point::Point(double x, double y): valueOfX(x), valueOfY(y) {}
+ariel::Point::Point(double valueOfX, double valueOfY): valueOfX(valueOfX), valueOfY(valueOfY) {}
 
-double ariel::Point::distance(ariel::Point &other) const {
-    double disX= other.valueOfX - this->valueOfX;
-    double disY= other.valueOfY - this->valueOfY;
-    double res=pow(disX,2)- pow(disY,2);
-    return sqrt(res);
+double ariel::Point::distance(const ariel::Point &other) const {
+    double disX= this->valueOfX - other.valueOfX;
+    double disY= this->valueOfY - other.valueOfY;
+    return sqrt(disX*disX + disY*disY);
 }
 
 std::string ariel::Point::print() const {
@@ -61,6 +60,14 @@ bool ariel::Point::operator!=(const ariel::Point &rhs) const {
     return !(rhs == *this);
 }
 
-ariel::Point::Point(ariel::Point &other) = default;
+ariel::Point &ariel::Point::operator=(const ariel::Point &other)=default;
+
+ariel::Point::Point(ariel::Point &&other) noexcept=default;
+
+ariel::Point::~Point()=default;
+
+ariel::Point &ariel::Point::operator=(ariel::Point &&other) noexcept=default;
+
+ariel::Point::Point(const ariel::Point &other) = default;
 
 

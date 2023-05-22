@@ -10,6 +10,8 @@
 namespace ariel {
     class Team2: public Team{
     public:
+        Team2(Character* leader);
+
         void attack(Team *enemyTeam) override;
 
         void print() override;

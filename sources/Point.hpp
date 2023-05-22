@@ -12,17 +12,17 @@ namespace ariel {
     private:
         double valueOfX, valueOfY;
     public:
-        double distance(Point &other) const;
+        double distance(const Point &other) const;
 
         std::string print() const;
 
         static Point moveTowards(const Point & source, const Point& destination, double distance);
 
-        Point(double x, double y);
+        Point(double valueOfX, double valueOfY);
 
         Point();
 
-        Point(Point &other);
+        Point(const Point &other);
 
         double getX() const;
 
@@ -35,6 +35,14 @@ namespace ariel {
         bool operator==(const Point &rhs) const;
 
         bool operator!=(const Point &rhs) const;
+
+        Point &operator=(Point &&other) noexcept;
+
+        ~Point();
+
+        Point(Point &&other) noexcept;
+
+        Point &operator=(const Point &other);
     };
 }
 

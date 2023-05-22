@@ -10,7 +10,7 @@ ariel::Cowboy::Cowboy(std::string name, ariel::Point location) : Character(std::
                                                                  numOfBullets(6) {
 }
 
-bool ariel::Cowboy::hasBullets() const {
+bool ariel::Cowboy::hasboolets() const {
     return this->numOfBullets > 0;
 }
 
@@ -18,7 +18,10 @@ void ariel::Cowboy::shoot(ariel::Character *enemy) {
     if (!this->isAlive()) throw std::runtime_error("can't shoot because the cowboy is dead");
     if (!enemy->isAlive()) throw std::runtime_error("can't shoot on dead character");
     if (enemy == this) throw std::runtime_error("can't shoot on himself");
-    if (hasBullets()) enemy->hit(10);
+    if (hasboolets()) {
+        enemy->hit(10);
+        this->numOfBullets--;
+    }
     else this->reload();
 }
 
@@ -36,4 +39,8 @@ std::string ariel::Cowboy::print() const {
         return "(C) name:(" + this->getName() + ") life:(" + std::to_string(this->getLife()) + ") location:(" +
                this->getLocation().print() + ")";
     return "(C) name:(" + this->getName() + ") location:(" + this->getLocation().print() + ")";
+}
+
+bool ariel::Cowboy::getType() const {
+    return false;
 }

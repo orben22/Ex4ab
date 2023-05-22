@@ -3,3 +3,13 @@
 //
 
 #include "SmartTeam.hpp"
+
+void ariel::SmartTeam::attack(ariel::Team *enemyTeam) {
+    Team::attack(enemyTeam);
+}
+
+void ariel::SmartTeam::print() {
+    Team::print();
+}
+
+ariel::SmartTeam::SmartTeam(ariel::Character *leader) : Team(leader) {}

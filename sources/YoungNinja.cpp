@@ -6,4 +6,4 @@
 
 #include <utility>
 
-ariel::YoungNinja::YoungNinja(std::string name, ariel::Point location): Ninja(std::move(name),location,youngLife,youngSpeed) {}
+ariel::YoungNinja::YoungNinja(std::string name, ariel::Point location): Ninja(std::move(name),std::move(location),youngLife,youngSpeed) {}

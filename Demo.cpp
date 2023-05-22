@@ -43,7 +43,6 @@ int main() {
         team_A.print();
         team_B.print();
     }
-
     if (team_A.stillAlive() > 0) cout << "winner is team_A" << endl;
     else cout << "winner is team_B" << endl;
 

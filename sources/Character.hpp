@@ -42,7 +42,17 @@ namespace ariel {
 
         bool getIsInTeam() const;
 
+        virtual bool getType () const=0; // false=cowboy, true=ninja
+
         void setIsInTeam();
+
+        Character &operator=(const Character &other);
+
+        Character(const Character &other);
+
+        Character(Character &&other) noexcept;
+
+        Character &operator=(Character &&other) noexcept;
     };
 }
 
