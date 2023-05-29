@@ -6,7 +6,7 @@
 
 #include <utility>
 
-ariel::Cowboy::Cowboy(std::string name, ariel::Point location) : Character(std::move(name), 120, location),
+ariel::Cowboy::Cowboy(std::string name, ariel::Point location) : Character(std::move(name), 110, location),
                                                                  numOfBullets(6) {
 }
 
@@ -41,6 +41,6 @@ std::string ariel::Cowboy::print() const {
     return "(C) name:(" + this->getName() + ") location:(" + this->getLocation().print() + ")";
 }
 
-bool ariel::Cowboy::getType() const {
-    return false;
+int ariel::Cowboy::getType() const {
+    return 0;
 }

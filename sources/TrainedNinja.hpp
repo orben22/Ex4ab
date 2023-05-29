@@ -10,6 +10,8 @@ namespace ariel {
     int const trainedLife=120;
     class TrainedNinja:public Ninja{
     public:
+        int getType() const override;
+
         TrainedNinja(std::string name,Point location);
     };
 }

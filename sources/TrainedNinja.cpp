@@ -8,3 +8,7 @@
 
 ariel::TrainedNinja::TrainedNinja(std::string name, ariel::Point location): Ninja(std::move(name),std::move(location),trainedLife,trainedSpeed) {}
 
+int ariel::TrainedNinja::getType() const {
+    return 2;
+}
+

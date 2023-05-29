@@ -33,7 +33,3 @@ std::string ariel::Ninja::print() const {
                this->getLocation().print() + ")";
     return "(N) name:(" + this->getName() + ") location:(" + this->getLocation().print() + ")";
 }
-
-bool ariel::Ninja::getType() const {
-    return true;
-}

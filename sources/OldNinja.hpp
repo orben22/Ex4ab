@@ -11,6 +11,8 @@ namespace ariel {
     class OldNinja:public Ninja{
     public:
         OldNinja(std::string name,Point location);
+
+        int getType() const override;
     };
 }
 

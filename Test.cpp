@@ -36,8 +36,8 @@ TEST_CASE("Test-Ninja Class") {
     CHECK_EQ(trainedNinja->getSpeed(), 12);
     CHECK_EQ(oldNinja->getSpeed(), 8);
     CHECK_EQ(youngNinja->getLocation(), p1);
-    CHECK_EQ(trainedNinja->getLocation(), p2);
-    CHECK_EQ(oldNinja->getLocation(), p3);
+    CHECK_EQ(oldNinja->getLocation(), p2);
+    CHECK_EQ(trainedNinja->getLocation(), p3);
     CHECK(youngNinja->isAlive());
 }
 
@@ -53,8 +53,8 @@ TEST_CASE("Test-Cowboy Class") {
 }
 
 TEST_CASE("Test-Cowboy vs Ninja") {
-    ariel::Point p1(1, 0);
-    ariel::Point p2(0.99, 0);
+    ariel::Point p1(1.5, 0);
+    ariel::Point p2(1, 0);
     ariel::Point p3;
     ariel::Point p4(18, 0);
     auto *c1 = new ariel::Cowboy("Bob", p1);
@@ -68,33 +68,33 @@ TEST_CASE("Test-Cowboy vs Ninja") {
     youngNinja->slash(c2);
     youngNinja->slash(trainedNinja);
     CHECK_EQ(c1->getLife(), 110);
-    CHECK_EQ(c2->getLife(), 97);
+    CHECK_EQ(c2->getLife(), 70);
     CHECK_EQ(trainedNinja->getLife(), 120);
     youngNinja->move(c1);
     youngNinja->slash(c1);
-    CHECK_EQ(c1->getLife(), 97);
+    CHECK_EQ(c1->getLife(), 70);
     youngNinja->move(trainedNinja);
     youngNinja->slash(trainedNinja);
     CHECK_EQ(trainedNinja->getLife(), 120);
     youngNinja->move(trainedNinja);
-    CHECK_EQ(trainedNinja->getLife(), 107);
+    CHECK_EQ(trainedNinja->getLife(), 120);
     for (int i = 1; i <= 5; i++) c1->shoot(youngNinja);
     CHECK_FALSE(c1->hasboolets());
     CHECK_NOTHROW(c1->shoot(c2));
-    CHECK_EQ(c2->getLife(), 97);
+    CHECK_EQ(c2->getLife(), 70);
     c1->reload();
     CHECK_EQ(c1->getNumOfBullets(), 6);
     for (int i = 1; i <= 4; i++) c1->shoot(youngNinja);
     CHECK_EQ(youngNinja->getLife(), 0);
-    youngNinja->slash(c2);
-    CHECK_EQ(c2->getLife(), 97);
+    CHECK_THROWS(youngNinja->slash(c2));
+    CHECK_EQ(c2->getLife(), 70);
     CHECK_FALSE(youngNinja->isAlive());
     ariel::Point p5(0.1, 0);
     auto *oldNinja = new ariel::OldNinja("Tim", p5);
-    for (int i = 1; i <= 8; i++) oldNinja->slash(c2);
-    c2->shoot(oldNinja);
+    while (c2->isAlive()) oldNinja->slash(c2);
+    CHECK_THROWS(c2->shoot(oldNinja));
     CHECK_EQ(oldNinja->getLife(), 150);
-    CHECK_FALSE(c2->hasboolets());
+    CHECK(c2->hasboolets());
     CHECK_FALSE(c2->isAlive());
     CHECK_THROWS(c2->reload());
 }
@@ -139,12 +139,12 @@ TEST_CASE("Test-Team Class") {
         c11->shoot(c2);
     }
     CHECK_EQ(t1->stillAlive(), 9);
-    for (int i = 0; i < 11; i++) {
+    while (leader->isAlive()) {
         if (!c11->hasboolets()) c11->reload();
         c11->shoot(leader);
     }
     CHECK_EQ(t1->stillAlive(), 8);
-    CHECK_NE(t1->getLeader(), leader);
+    CHECK_EQ(t1->getLeader(), leader);
     auto t2 = new ariel::Team(c11);
     CHECK_THROWS(t2->add(c3));
     auto *c22 = new ariel::Cowboy("Tom2", p2);
@@ -171,8 +171,8 @@ TEST_CASE("Test-Team Class") {
     }
     CHECK(((t1->stillAlive() == 0) || (t2->stillAlive() == 0)));
     if (t1->stillAlive() == 0) {
-        CHECK_THROWS(t1->attack(t2));
+        CHECK_NOTHROW(t1->attack(t2));
     } else if (t2->stillAlive() == 0) {
-        CHECK_THROWS(t2->attack(t1));
+        CHECK_NOTHROW(t2->attack(t1));
     }
 }

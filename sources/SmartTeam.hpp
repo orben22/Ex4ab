@@ -1,23 +1,28 @@
-//
-// Created by or on 5/2/23.
-//
+#ifndef SMARTTEAM_H
+#define SMARTTEAM_H
 
-#ifndef UNTITLED3_SMARTTEAM_H
-#define UNTITLED3_SMARTTEAM_H
-
-#include "Team.hpp"
+#include <array>
+#include <vector>
+#include "Character.hpp"
+#include "Cowboy.hpp"
+#include "OldNinja.hpp"
+#include "TrainedNinja.hpp"
+#include "YoungNinja.hpp"
+#include "Team2.hpp"
 
 namespace ariel {
-    class SmartTeam: public Team{
-        SmartTeam(Character* leader);
+    class SmartTeam : public Team2 {
 
     public:
-        void attack(Team *enemyTeam) override;
+        SmartTeam(Character *leader);
 
-        void print() override;
+        void attack(Team *enemys) override;
 
+    private:
+        double enemyScore(Character *enemy, Team *enemyTeam, Character *attackingCharacter);
 
+        std::vector<Character *> targetedEnemies;
     };
 }
 
-#endif //UNTITLED3_SMARTTEAM_H
+#endif 

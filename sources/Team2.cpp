@@ -14,7 +14,7 @@ void ariel::Team2::attack(ariel::Team *enemyTeam) {
         Character *curr = getMyteam().at(i);
         if (curr != nullptr) {
             if (curr->isAlive()) {
-                if (!curr->getType()) {
+                if (curr->getType()==0) {
                     auto *cowboy = dynamic_cast<Cowboy *>(curr);
                     cowboy->shoot(charToAttack);
                 }else {

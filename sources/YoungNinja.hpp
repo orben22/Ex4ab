@@ -11,6 +11,8 @@ namespace ariel {
     int const youngLife=100;
     class YoungNinja:public Ninja{
     public:
+        int getType() const override;
+
         YoungNinja(std::string name,Point location);
     };
 }

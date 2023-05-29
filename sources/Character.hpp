@@ -42,7 +42,7 @@ namespace ariel {
 
         bool getIsInTeam() const;
 
-        virtual bool getType () const=0; // false=cowboy, true=ninja
+        virtual int getType () const=0; // 0=cowboy, 1=YoungNinja, 2=TrainedNinja, 3=OldNinja
 
         void setIsInTeam();
 

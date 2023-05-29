@@ -17,7 +17,6 @@ namespace ariel {
 
         std::string print() const override;
 
-        bool getType() const override;
     };
 }
 
